@@ -600,6 +600,8 @@ main > section:not(.hero):not(.strip){
 }
 
 .service-matrix{
+  max-width: 1180px;
+  margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
@@ -609,7 +611,7 @@ main > section:not(.hero):not(.strip){
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .service-cluster{
-  min-height: 430px;
+  min-height: 390px;
   display: flex;
   flex-direction: column;
   padding: 22px;
@@ -629,10 +631,10 @@ main > section:not(.hero):not(.strip){
     var(--panel);
 }
 .service-cluster--compact{
-  min-height: 350px;
+  min-height: 310px;
 }
 .service-cluster__index{
-  margin-bottom: 70px;
+  margin-bottom: 44px;
   color: rgba(183,243,74,.85);
   font-family: var(--font-display);
   font-size: 13px;
@@ -711,6 +713,8 @@ main > section:not(.hero):not(.strip){
 }
 .audience-grid,
 .included-grid{
+  max-width: 1180px;
+  margin-inline: auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
@@ -719,7 +723,7 @@ main > section:not(.hero):not(.strip){
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .content-card{
-  min-height: 250px;
+  min-height: 235px;
   display: grid;
   align-content: start;
   gap: 14px;
@@ -745,6 +749,7 @@ main > section:not(.hero):not(.strip){
   background: rgba(6,8,6,.24);
 }
 .problem-list{
+  max-width: 620px;
   display: grid;
   gap: 10px;
 }
@@ -1107,6 +1112,9 @@ main > section:not(.hero):not(.strip){
   background: rgba(241,246,239,.04);
   transition: border-color .24s var(--ease), background .24s var(--ease);
 }
+.tl-step__card h3{
+  align-self: center;
+}
 .tl-step.active .tl-step__card{
   border-color: rgba(25,230,109,.3);
   background: rgba(25,230,109,.055);
@@ -1121,6 +1129,7 @@ main > section:not(.hero):not(.strip){
   background: linear-gradient(135deg, var(--lime), var(--green));
 }
 .tl-step__card p{
+  grid-column: 2;
   margin-top: 8px;
   color: var(--text-mute);
 }
