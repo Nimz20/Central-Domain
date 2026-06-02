@@ -150,7 +150,7 @@
     updateTimeline();
   }
 
-  /* ---------- Estimate and invoice request builder ---------- */
+  /* ---------- Estimate and quote request builder ---------- */
   const checkoutButtons = Array.from(document.querySelectorAll('[data-checkout-item]'));
   const checkoutList = document.getElementById('checkoutList');
   const checkoutEmpty = document.getElementById('checkoutEmpty');
@@ -176,22 +176,36 @@
 
   const getDueAmount = (item) => {
     if (!Number.isFinite(item.price)) return null;
-    if (item.due === 'deposit') return item.price * 0.5;
     return item.price;
   };
 
   const getItemLabel = (item) => {
     const amount = getDueAmount(item);
-    if (amount === null) return 'Scope quote';
+    if (amount === null) return 'Quoted';
     const prefix = item.prefix === 'from' ? 'From ' : '';
-    const suffix = item.due === 'deposit'
-      ? ' deposit'
-      : item.frequency === 'monthly'
-        ? ' first month'
-        : item.frequency === 'hourly'
-          ? ' first hour'
-          : '';
+    const suffix = item.frequency === 'monthly'
+      ? ' / month'
+      : item.frequency === 'hourly'
+        ? ' / hour'
+        : '';
     return `${prefix}${normaliseCurrency(amount)}${suffix}`;
+  };
+
+  const getAmountSummary = (items, total, hasScope) => {
+    const pricedItems = items.filter((item) => Number.isFinite(item.price));
+    if (!pricedItems.length) return hasScope ? 'Quoted' : 'R0.00';
+
+    const frequencies = new Set(pricedItems.map((item) => item.frequency || 'once-off'));
+    if (frequencies.size > 1) return hasScope ? 'Selected items + quoted work' : 'See selected items';
+
+    const [frequency] = frequencies;
+    const suffix = frequency === 'monthly'
+      ? ' / month'
+      : frequency === 'hourly'
+        ? ' / hour'
+        : '';
+
+    return `${normaliseCurrency(total)}${suffix}${hasScope ? ' + quoted work' : ''}`;
   };
 
   const getFieldValue = (id) => {
@@ -225,15 +239,10 @@
       return sum + (due || 0);
     }, 0);
     const hasScope = items.some((item) => getDueAmount(item) === null);
-    const totalText = pricedTotal > 0
-      ? `${normaliseCurrency(pricedTotal)}${hasScope ? ' + scope quote' : ''}`
-      : hasScope
-        ? 'Scope quote required'
-        : 'R0.00';
+    const totalText = getAmountSummary(items, pricedTotal, hasScope);
 
-    lines.push('', `Estimated starting amount: ${totalText}`);
-    lines.push('Payment method: EFT only');
-    lines.push('Please confirm scope and send the EFT invoice for payment.');
+    lines.push('', `Selected total: ${totalText}`);
+    lines.push('Please confirm the selected services and any scoped work.');
 
     const note = getFieldValue('checkoutMessage');
     if (note) lines.push('', `Notes: ${note}`);
@@ -259,13 +268,11 @@
 
     let total = 0;
     let hasScope = false;
-    let hasDeposit = false;
 
     items.forEach((item) => {
       const due = getDueAmount(item);
       if (due === null) hasScope = true;
       else total += due;
-      if (item.due === 'deposit') hasDeposit = true;
 
       const li = document.createElement('li');
       li.className = 'checkout-summary__item';
@@ -275,7 +282,7 @@
       const remove = document.createElement('button');
 
       title.textContent = item.title;
-      detail.textContent = `${getItemLabel(item)}${item.note ? ` - ${item.note}` : ''}`;
+      detail.textContent = getItemLabel(item);
       remove.type = 'button';
       remove.textContent = 'x';
       remove.setAttribute('aria-label', `Remove ${item.title}`);
@@ -287,17 +294,15 @@
     });
 
     checkoutAmount.textContent = total > 0
-      ? `${normaliseCurrency(total)}${hasScope ? ' + quote' : ''}`
+      ? getAmountSummary(items, total, hasScope)
       : hasScope
-        ? 'Scope quote'
+        ? 'Quoted'
         : 'R0.00';
 
     if (checkoutNote) {
-      checkoutNote.textContent = hasDeposit
-        ? 'Project items show the 50% upfront deposit. The remaining 50% is due after sign-off and before go-live.'
-        : hasScope
-          ? 'Scoped work is confirmed on invoice after discovery.'
-          : 'Final billing is confirmed on invoice before payment.';
+      checkoutNote.textContent = hasScope
+        ? 'Scoped items are confirmed before the quote is final.'
+        : 'The quote will match the selected items.';
     }
 
     checkoutButtons.forEach((button) => {
@@ -321,8 +326,6 @@
         price: rawPrice ? Number(rawPrice) : NaN,
         prefix: button.dataset.prefix || '',
         frequency: button.dataset.frequency || '',
-        due: button.dataset.due || 'full',
-        note: button.dataset.note || '',
       };
 
       if (selectedCheckoutItems.has(item.id)) {
