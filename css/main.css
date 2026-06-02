@@ -423,42 +423,55 @@ h4{ font-size: 17px; font-weight: 760; }
   position: relative;
   min-height: 560px;
   display: grid;
+  align-content: center;
   place-items: center;
+  gap: 22px;
   padding: 42px;
   isolation: isolate;
 }
+.hero-mark__orb{
+  position: relative;
+  width: min(82vw, 520px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
 .hero-mark__glow{
-  content: "";
   position: absolute;
-  inset: 8% 0;
+  inset: 10%;
   z-index: -1;
   border-radius: 50%;
   background:
     radial-gradient(circle at 50% 48%, rgba(25,230,109,.28) 0, rgba(25,230,109,.12) 24%, transparent 62%),
     radial-gradient(circle at 48% 48%, rgba(183,243,74,.15) 0, transparent 58%);
   filter: blur(18px);
+  animation: heroGlowPulse 6s var(--ease) infinite;
 }
 .hero-mark__ring{
   position: absolute;
-  width: min(82vw, 520px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(25,230,109,.16);
+  inset: 0;
   border-radius: 50%;
   background:
-    radial-gradient(circle at center, rgba(25,230,109,.08), transparent 40%),
-    repeating-conic-gradient(from 8deg, rgba(25,230,109,.32) 0deg 2deg, transparent 2deg 17deg);
-  mask-image: radial-gradient(circle, transparent 0 46%, #000 47% 50%, transparent 51%);
-  opacity: .75;
+    radial-gradient(circle at center, rgba(25,230,109,.1), transparent 39%),
+    repeating-conic-gradient(from 0deg, rgba(25,230,109,.44) 0deg 2deg, transparent 2deg 15deg);
+  mask-image: radial-gradient(circle, transparent 0 45%, #000 46% 50%, transparent 51%);
+  opacity: .82;
+  animation: heroRingRotate 28s linear infinite;
 }
 .hero-mark__logo{
-  width: min(100%, 390px);
+  position: relative;
+  z-index: 1;
+  width: min(74%, 390px);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 26px 60px rgba(25,230,109,.18));
+  filter: drop-shadow(0 26px 60px rgba(25,230,109,.22));
+}
+.hero-mark__body{
+  display: grid;
+  justify-items: center;
 }
 .hero-mark__caption{
   max-width: 410px;
-  margin-top: 28px;
   color: var(--text-mute);
   font-size: 15px;
   line-height: 1.55;
@@ -481,6 +494,13 @@ h4{ font-size: 17px; font-weight: 760; }
   font-weight: 850;
   text-transform: uppercase;
   letter-spacing: .03em;
+}
+@keyframes heroRingRotate{
+  to{ transform: rotate(360deg); }
+}
+@keyframes heroGlowPulse{
+  0%,100%{ opacity: .72; transform: scale(.96); }
+  50%{ opacity: 1; transform: scale(1.06); }
 }
 .hero__scroll{
   position: absolute;
@@ -1517,11 +1537,11 @@ main > section:not(.hero):not(.strip){
     min-height: auto;
     padding: 28px 8px 6px;
   }
-  .hero-mark__ring{
+  .hero-mark__orb{
     width: min(82vw, 360px);
   }
   .hero-mark__logo{
-    width: min(100%, 300px);
+    width: min(74%, 300px);
   }
   .hero-mark__caption{
     max-width: 320px;
