@@ -4,7 +4,7 @@
    - Scroll reveals
    - Tilt-on-hover for cards (with mouse-following glow)
    - Cursor glow
-   - Sticky nav (auto-hide on scroll down, show on up)
+   - Sticky nav state
    - Mobile nav toggle
    - Animated orbs that drift with scroll
    ===================================================== */
@@ -25,8 +25,7 @@
       const el = document.querySelector(id);
       if (!el) return;
       e.preventDefault();
-      const top = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
@@ -90,22 +89,14 @@
     });
   }
 
-  /* ---------- Sticky nav: hide on scroll down, show on up ---------- */
+  /* ---------- Sticky nav visual state ---------- */
   const nav = document.getElementById('nav');
   if (nav) {
-    let lastY = window.scrollY;
     let ticking = false;
 
     const onScroll = () => {
       const y = window.scrollY;
       nav.classList.toggle('is-scrolled', y > 30);
-
-      if (y > 200 && y > lastY + 6) {
-        nav.classList.add('is-hidden');
-      } else if (y < lastY - 6 || y < 80) {
-        nav.classList.remove('is-hidden');
-      }
-      lastY = y;
       ticking = false;
     };
     window.addEventListener('scroll', () => {

@@ -47,7 +47,11 @@ html{
   background: var(--bg);
   color-scheme: dark;
   scroll-behavior: smooth;
+  scroll-padding-top: 104px;
   -webkit-text-size-adjust: 100%;
+}
+[id]{
+  scroll-margin-top: 104px;
 }
 body{
   min-width: 320px;
@@ -126,6 +130,8 @@ h4{ font-size: 17px; font-weight: 760; }
 }
 
 @media (max-width: 680px){
+  html{ scroll-padding-top: 88px; }
+  [id]{ scroll-margin-top: 88px; }
   body{ font-size: 15.5px; }
   h1{ font-size: 42px; }
   h2{ font-size: 34px; }
@@ -238,7 +244,6 @@ h4{ font-size: 17px; font-weight: 760; }
   border-color: rgba(25,230,109,.22);
   box-shadow: 0 22px 80px rgba(0,0,0,.58);
 }
-.nav.is-hidden{ transform: translate(-50%,-150%); }
 .nav__brand{
   display: inline-flex;
   align-items: center;

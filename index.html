@@ -32,7 +32,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
 
-<link rel="stylesheet" href="css/main.css?v=20260602-heromark1" />
+<link rel="stylesheet" href="css/main.css?v=20260602-flowfix1" />
 
 <!-- Google Analytics GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKYRSPZ5WD"></script>
@@ -104,12 +104,12 @@
   </a>
   <nav class="nav__links" aria-label="Primary">
     <a href="#services">Services</a>
-    <a href="#rate-card">Pricing</a>
     <a href="#process">Process</a>
+    <a href="#rate-card">Pricing</a>
     <a href="#why">Why us</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a class="btn btn--pill" href="#checkout">
+  <a class="btn btn--pill" href="#rate-card">
     <span>Build estimate</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
   </a>
@@ -371,6 +371,74 @@
     </div>
   </section>
 
+  <!-- PROCESS -->
+  <section class="process" id="process" aria-labelledby="process-title">
+    <div class="section__head">
+      <p class="eyebrow reveal" data-reveal>How we work</p>
+      <h2 class="section__title reveal" data-reveal data-delay="80" id="process-title">
+        Simple enough to follow. Serious enough to ship.
+      </h2>
+      <p class="section__lede reveal" data-reveal data-delay="160">
+        We keep the process lean because the work itself deserves the attention. Every project starts
+        with clarity, moves through controlled build phases, and ends with a stack someone is accountable for.
+      </p>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-rail" aria-hidden="true">
+        <div class="timeline-rail__fill" id="tl-fill"></div>
+        <div class="timeline-nodes">
+          <div class="tl-node" data-step="0"></div>
+          <div class="tl-node" data-step="1"></div>
+          <div class="tl-node" data-step="2"></div>
+          <div class="tl-node" data-step="3"></div>
+        </div>
+      </div>
+      <ol class="tl-steps">
+        <li class="tl-step" data-tl-step="0">
+          <span class="tl-step__num">01</span>
+          <div class="tl-step__card">
+            <div class="tl-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <h3>Map</h3>
+            <p>We pin down the business goal, the audience, the offer, the existing systems and the fastest useful path forward.</p>
+          </div>
+        </li>
+        <li class="tl-step" data-tl-step="1">
+          <span class="tl-step__num">02</span>
+          <div class="tl-step__card">
+            <div class="tl-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </div>
+            <h3>Shape</h3>
+            <p>We turn that map into page structure, service priorities, content direction and the technical plan behind it.</p>
+          </div>
+        </li>
+        <li class="tl-step" data-tl-step="2">
+          <span class="tl-step__num">03</span>
+          <div class="tl-step__card">
+            <div class="tl-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Build</h3>
+            <p>We create the site, configure the essentials, connect the forms, set up tracking and prepare the launch path.</p>
+          </div>
+        </li>
+        <li class="tl-step" data-tl-step="3">
+          <span class="tl-step__num">04</span>
+          <div class="tl-step__card">
+            <div class="tl-step__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <h3>Operate</h3>
+            <p>After launch, we keep the stack maintained, improve visibility, support the team and automate repeat work.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- RATE CARD / ESTIMATE REQUEST -->
   <section class="rate-card-section" id="rate-card" aria-labelledby="rate-card-title">
     <div class="section__head">
@@ -570,74 +638,6 @@
           </ul>
         </div>
       </aside>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="process" id="process" aria-labelledby="process-title">
-    <div class="section__head">
-      <p class="eyebrow reveal" data-reveal>How we work</p>
-      <h2 class="section__title reveal" data-reveal data-delay="80" id="process-title">
-        Simple enough to follow. Serious enough to ship.
-      </h2>
-      <p class="section__lede reveal" data-reveal data-delay="160">
-        We keep the process lean because the work itself deserves the attention. Every project starts
-        with clarity, moves through controlled build phases, and ends with a stack someone is accountable for.
-      </p>
-    </div>
-
-    <div class="timeline-wrap">
-      <div class="timeline-rail" aria-hidden="true">
-        <div class="timeline-rail__fill" id="tl-fill"></div>
-        <div class="timeline-nodes">
-          <div class="tl-node" data-step="0"></div>
-          <div class="tl-node" data-step="1"></div>
-          <div class="tl-node" data-step="2"></div>
-          <div class="tl-node" data-step="3"></div>
-        </div>
-      </div>
-      <ol class="tl-steps">
-        <li class="tl-step" data-tl-step="0">
-          <span class="tl-step__num">01</span>
-          <div class="tl-step__card">
-            <div class="tl-step__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            </div>
-            <h3>Map</h3>
-            <p>We pin down the business goal, the audience, the offer, the existing systems and the fastest useful path forward.</p>
-          </div>
-        </li>
-        <li class="tl-step" data-tl-step="1">
-          <span class="tl-step__num">02</span>
-          <div class="tl-step__card">
-            <div class="tl-step__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-            </div>
-            <h3>Shape</h3>
-            <p>We turn that map into page structure, service priorities, content direction and the technical plan behind it.</p>
-          </div>
-        </li>
-        <li class="tl-step" data-tl-step="2">
-          <span class="tl-step__num">03</span>
-          <div class="tl-step__card">
-            <div class="tl-step__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <h3>Build</h3>
-            <p>We create the site, configure the essentials, connect the forms, set up tracking and prepare the launch path.</p>
-          </div>
-        </li>
-        <li class="tl-step" data-tl-step="3">
-          <span class="tl-step__num">04</span>
-          <div class="tl-step__card">
-            <div class="tl-step__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            </div>
-            <h3>Operate</h3>
-            <p>After launch, we keep the stack maintained, improve visibility, support the team and automate repeat work.</p>
-          </div>
-        </li>
-      </ol>
     </div>
   </section>
 
@@ -871,8 +871,8 @@
         <h4>Studio</h4>
         <ul>
           <li><a href="#services">What we do</a></li>
-          <li><a href="#rate-card">Pricing</a></li>
           <li><a href="#process">Process</a></li>
+          <li><a href="#rate-card">Pricing</a></li>
           <li><a href="#why">Why us</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -893,6 +893,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260602-heromark1" defer></script>
+<script src="js/main.js?v=20260602-flowfix1" defer></script>
 </body>
 </html>
