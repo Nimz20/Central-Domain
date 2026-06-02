@@ -604,6 +604,10 @@ main > section:not(.hero):not(.strip){
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
+.service-matrix--core,
+.service-matrix--support{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .service-cluster{
   min-height: 430px;
   display: flex;
@@ -623,6 +627,9 @@ main > section:not(.hero):not(.strip){
   background:
     linear-gradient(180deg, rgba(25,230,109,.13), rgba(25,230,109,.035)),
     var(--panel);
+}
+.service-cluster--compact{
+  min-height: 350px;
 }
 .service-cluster__index{
   margin-bottom: 70px;
@@ -644,6 +651,9 @@ main > section:not(.hero):not(.strip){
 .service-cluster__head p,
 .rate-card p,
 .feature p,
+.content-card p,
+.problem-list p,
+.next-steps p,
 .terms-card li,
 .why__list p,
 .notemplate__body,
@@ -680,6 +690,102 @@ main > section:not(.hero):not(.strip){
   color: var(--text-faint);
   font-size: 12px;
   line-height: 1.35;
+}
+
+.supporting-services{
+  margin-top: 34px;
+}
+.supporting-services__head{
+  max-width: 760px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+.supporting-services__head h3{
+  color: var(--text);
+  font-size: 25px;
+  line-height: 1.25;
+}
+
+.audience{
+  background: linear-gradient(180deg, rgba(25,230,109,.026), rgba(241,246,239,.018));
+}
+.audience-grid,
+.included-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.included-grid{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.content-card{
+  min-height: 250px;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(241,246,239,.048), rgba(241,246,239,.018));
+}
+.content-card span,
+.problem-list span,
+.next-steps span{
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+.content-card h3{
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.problems{
+  background: rgba(6,8,6,.24);
+}
+.problem-list{
+  display: grid;
+  gap: 10px;
+}
+.problem-list li{
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(241,246,239,.035);
+}
+.problem-list p{
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.included{
+  background: linear-gradient(180deg, rgba(241,246,239,.018), rgba(25,230,109,.026));
+}
+
+.next-steps{
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: -14px auto 32px;
+}
+.next-steps article{
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid rgba(25,230,109,.2);
+  border-radius: var(--radius);
+  background: rgba(25,230,109,.045);
+}
+.next-steps h3{
+  font-size: 17px;
+}
+.next-steps p{
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .rate-card-section{
@@ -1114,38 +1220,6 @@ main > section:not(.hero):not(.strip){
   background: var(--green);
 }
 
-.stats{
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: rgba(13,19,14,.52);
-}
-.stat{
-  min-height: 210px;
-  display: grid;
-  align-content: center;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(241,246,239,.032);
-}
-.stat__num,
-.stat__suffix{
-  display: inline;
-  color: var(--green);
-  font-family: var(--font-display);
-  font-size: 50px;
-  font-weight: 850;
-  line-height: 1;
-}
-.stat p{
-  margin-top: 14px;
-  color: var(--text-mute);
-  font-size: 14px;
-}
-
 .faq__list{
   max-width: 900px;
   display: grid;
@@ -1398,6 +1472,9 @@ main > section:not(.hero):not(.strip){
 
 @media (max-width: 1180px){
   .service-matrix{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .audience-grid,
+  .included-grid,
+  .next-steps{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rate-card__layout{ grid-template-columns: 1fr; }
   .checkout-panel{ position: relative; top: auto; }
   .hero{
@@ -1445,7 +1522,6 @@ main > section:not(.hero):not(.strip){
   }
   .why__head{ position: static; }
   .notemplate__right,
-  .stats,
   .service-features{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1472,8 +1548,10 @@ main > section:not(.hero):not(.strip){
   .hero__proof,
   .showcase-metrics,
   .service-matrix,
+  .audience-grid,
+  .included-grid,
+  .next-steps,
   .notemplate__right,
-  .stats,
   .service-features,
   .footer__cols,
   .checkout-form{

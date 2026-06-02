@@ -5,7 +5,6 @@
    - Tilt-on-hover for cards (with mouse-following glow)
    - Cursor glow
    - Sticky nav (auto-hide on scroll down, show on up)
-   - Animated stat counters
    - Mobile nav toggle
    - Animated orbs that drift with scroll
    ===================================================== */
@@ -160,30 +159,7 @@
     updateTimeline();
   }
 
-  /* ---------- Animated stat counters ---------- */
-  const counters = document.querySelectorAll('[data-count]');
-  if ('IntersectionObserver' in window) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const end = parseInt(el.dataset.count, 10) || 0;
-        const dur = 1400;
-        const start = performance.now();
-        const step = (t) => {
-          const p = Math.min((t - start) / dur, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(end * eased).toString();
-          if (p < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-        cio.unobserve(el);
-      });
-    }, { threshold: 0.4 });
-    counters.forEach((c) => cio.observe(c));
-  }
-
-  /* ---------- EFT checkout builder ---------- */
+  /* ---------- Estimate and invoice request builder ---------- */
   const checkoutButtons = Array.from(document.querySelectorAll('[data-checkout-item]'));
   const checkoutList = document.getElementById('checkoutList');
   const checkoutEmpty = document.getElementById('checkoutEmpty');
@@ -235,7 +211,7 @@
   const buildCheckoutMessage = () => {
     const items = Array.from(selectedCheckoutItems.values());
     const lines = [
-      'EFT invoice request - Central Domain',
+      'Project estimate request - Central Domain',
       '',
       `Name: ${getFieldValue('checkoutName') || 'Not provided'}`,
       `Business: ${getFieldValue('checkoutBusiness') || 'Not provided'}`,
@@ -264,9 +240,9 @@
         ? 'Scope quote required'
         : 'R0.00';
 
-    lines.push('', `Estimated EFT amount: ${totalText}`);
+    lines.push('', `Estimated starting amount: ${totalText}`);
     lines.push('Payment method: EFT only');
-    lines.push('Please send banking details and the invoice for payment.');
+    lines.push('Please confirm scope and send the EFT invoice for payment.');
 
     const note = getFieldValue('checkoutMessage');
     if (note) lines.push('', `Notes: ${note}`);
@@ -279,7 +255,7 @@
     const encoded = encodeURIComponent(message);
     if (whatsappLink) whatsappLink.href = `https://wa.me/27725533660?text=${encoded}`;
     if (emailLink) {
-      emailLink.href = `mailto:info@centraldomain.co.za?subject=${encodeURIComponent('EFT invoice request - Central Domain')}&body=${encoded}`;
+      emailLink.href = `mailto:info@centraldomain.co.za?subject=${encodeURIComponent('Project estimate request - Central Domain')}&body=${encoded}`;
     }
   };
 
@@ -339,7 +315,7 @@
       const selected = selectedCheckoutItems.has(id);
       if (card) card.classList.toggle('is-selected', selected);
       button.setAttribute('aria-pressed', selected ? 'true' : 'false');
-      button.querySelector('span').textContent = selected ? 'Selected for EFT' : 'Add to EFT checkout';
+      button.querySelector('span').textContent = selected ? 'Selected for estimate' : 'Add to estimate';
     });
 
     updateCheckoutLinks();
