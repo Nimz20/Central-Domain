@@ -191,21 +191,37 @@
     return `${prefix}${normaliseCurrency(amount)}${suffix}`;
   };
 
-  const getAmountSummary = (items, total, hasScope) => {
-    const pricedItems = items.filter((item) => Number.isFinite(item.price));
-    if (!pricedItems.length) return hasScope ? 'Quoted' : 'R0.00';
+  const getAmountSummary = (items, hasScope) => {
+    const groups = new Map();
 
-    const frequencies = new Set(pricedItems.map((item) => item.frequency || 'once-off'));
-    if (frequencies.size > 1) return hasScope ? 'Selected items + quoted work' : 'See selected items';
+    items.forEach((item) => {
+      if (!Number.isFinite(item.price)) return;
+      const frequency = item.frequency || 'once-off';
+      const group = groups.get(frequency) || { total: 0, from: false };
+      group.total += item.price;
+      group.from = group.from || item.prefix === 'from';
+      groups.set(frequency, group);
+    });
 
-    const [frequency] = frequencies;
-    const suffix = frequency === 'monthly'
-      ? ' / month'
-      : frequency === 'hourly'
-        ? ' / hour'
-        : '';
+    const labels = {
+      'once-off': ' once-off',
+      monthly: ' / month',
+      hourly: ' / hour',
+    };
+    const orderedFrequencies = ['once-off', 'monthly', 'hourly'];
+    const extraFrequencies = Array.from(groups.keys()).filter((frequency) => !orderedFrequencies.includes(frequency));
+    const parts = [...orderedFrequencies, ...extraFrequencies].reduce((summary, frequency) => {
+      const group = groups.get(frequency);
+      if (!group || group.total <= 0) return summary;
+      const prefix = group.from ? 'From ' : '';
+      const label = labels[frequency] || ` ${frequency}`;
+      summary.push(`${prefix}${normaliseCurrency(group.total)}${label}`);
+      return summary;
+    }, []);
 
-    return `${normaliseCurrency(total)}${suffix}${hasScope ? ' + quoted work' : ''}`;
+    if (hasScope && !parts.length) return 'Quoted';
+    if (hasScope) parts.push('quoted work');
+    return parts.length ? parts.join(' + ') : 'R0.00';
   };
 
   const getFieldValue = (id) => {
@@ -234,12 +250,8 @@
       lines.push('- No services selected yet');
     }
 
-    const pricedTotal = items.reduce((sum, item) => {
-      const due = getDueAmount(item);
-      return sum + (due || 0);
-    }, 0);
     const hasScope = items.some((item) => getDueAmount(item) === null);
-    const totalText = getAmountSummary(items, pricedTotal, hasScope);
+    const totalText = getAmountSummary(items, hasScope);
 
     lines.push('', `Selected total: ${totalText}`);
     lines.push('Please confirm the selected services and any scoped work.');
@@ -294,7 +306,7 @@
     });
 
     checkoutAmount.textContent = total > 0
-      ? getAmountSummary(items, total, hasScope)
+      ? getAmountSummary(items, hasScope)
       : hasScope
         ? 'Quoted'
         : 'R0.00';
