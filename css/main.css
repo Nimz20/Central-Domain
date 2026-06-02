@@ -794,9 +794,9 @@ p{margin:0}
 }
 .rate-card__layout{
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
-  gap: 28px;
-  max-width: 1380px;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 40px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--pad-x);
   align-items: start;
@@ -804,61 +804,56 @@ p{margin:0}
 .rate-card__catalog{
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 44px;
 }
 .rate-group{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  padding: 18px;
-  border-radius: var(--r-lg);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.014));
-  border: 1px solid rgba(139,47,232,.16);
-  backdrop-filter: blur(22px) saturate(155%);
-  -webkit-backdrop-filter: blur(22px) saturate(155%);
-  box-shadow: 0 24px 70px -34px rgba(0,0,0,.75);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .rate-group__head{
-  grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 2px 4px 10px;
+  justify-content: flex-start;
+  gap: 14px;
+  padding-bottom: 6px;
 }
 .rate-group__head span{
   flex: 0 0 auto;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
+  border-radius: 12px;
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, rgba(157,75,255,.38), rgba(34,211,238,.2));
+  background: linear-gradient(135deg, rgba(157,75,255,.58), rgba(34,211,238,.28));
   border: 1px solid rgba(255,255,255,.14);
 }
 .rate-group__head h3{
   flex: 1;
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(22px, 2.2vw, 30px);
   line-height: 1.15;
-  text-align: right;
+  text-align: left;
 }
 .rate-card{
   position: relative;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(136px, 174px) 168px;
+  grid-template-areas:
+    "title price action"
+    "desc price action"
+    "bonus bonus action";
+  column-gap: 24px;
+  row-gap: 10px;
+  align-items: center;
+  padding: 22px 24px;
   border-radius: var(--r-md);
-  background:
-    linear-gradient(155deg, rgba(255,255,255,.07), rgba(255,255,255,.018));
-  border: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(135deg, rgba(255,255,255,.052), rgba(255,255,255,.016));
+  border: 1px solid rgba(255,255,255,.09);
   overflow: hidden;
   isolation: isolate;
   transition: transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease), background .45s var(--ease);
@@ -866,12 +861,11 @@ p{margin:0}
 .rate-card::before{
   content:"";
   position: absolute;
-  inset: auto -50px -80px -50px;
-  height: 150px;
-  background: radial-gradient(circle at 20% 50%, rgba(157,75,255,.38), transparent 55%),
-              radial-gradient(circle at 80% 50%, rgba(34,211,238,.22), transparent 58%);
-  filter: blur(28px);
-  opacity: .32;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(34,211,238,.08), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(157,75,255,.12), transparent 38%);
+  opacity: .7;
   pointer-events: none;
   z-index: 0;
 }
@@ -885,10 +879,12 @@ p{margin:0}
 }
 .rate-card > *{ position: relative; z-index: 1; }
 .rate-card__top{
+  grid-area: price;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 0;
 }
 .rate-card__kicker{
   display: inline-flex;
@@ -907,11 +903,12 @@ p{margin:0}
 }
 .rate-card__price{
   font-family: var(--font-display);
-  font-size: clamp(23px, 2.3vw, 32px);
+  font-size: clamp(24px, 2.1vw, 30px);
   font-weight: 700;
   line-height: 1;
   text-align: right;
   color: #fff;
+  white-space: nowrap;
 }
 .rate-card__price small{
   display: block;
@@ -922,15 +919,21 @@ p{margin:0}
   color: var(--text-faint);
 }
 .rate-card h4{
-  font-size: 20px;
-  line-height: 1.16;
+  grid-area: title;
+  font-size: 19px;
+  line-height: 1.18;
+  max-width: 520px;
 }
 .rate-card p{
+  grid-area: desc;
   color: var(--text-mute);
   font-size: 14px;
   line-height: 1.56;
+  max-width: 620px;
 }
 .rate-card__bonus{
+  grid-area: bonus;
+  max-width: 520px;
   padding: 10px 12px;
   border-radius: 12px;
   background: rgba(34,211,238,.07);
@@ -940,9 +943,11 @@ p{margin:0}
   line-height: 1.45;
 }
 .rate-card__select{
-  margin-top: auto;
+  grid-area: action;
+  justify-self: end;
+  margin-top: 0;
   min-height: 46px;
-  width: 100%;
+  width: 168px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -953,6 +958,7 @@ p{margin:0}
   color: #fff;
   font-size: 14px;
   font-weight: 700;
+  text-align: center;
   transition: transform .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
 .rate-card__select:hover{
@@ -968,10 +974,10 @@ p{margin:0}
 .checkout-panel{
   position: sticky;
   top: 110px;
-  padding: 28px;
+  padding: 26px;
   border-radius: var(--r-lg);
   background:
-    linear-gradient(145deg, rgba(157,75,255,.1), rgba(34,211,238,.055)),
+    linear-gradient(145deg, rgba(157,75,255,.085), rgba(34,211,238,.05)),
     rgba(255,255,255,.035);
   border: 1px solid rgba(255,255,255,.13);
   backdrop-filter: blur(28px) saturate(160%);
@@ -995,7 +1001,7 @@ p{margin:0}
 }
 .checkout-panel > *{ position: relative; z-index: 1; }
 .checkout-panel__header h3{
-  font-size: clamp(26px, 3vw, 36px);
+  font-size: clamp(25px, 2.6vw, 32px);
   margin-bottom: 12px;
 }
 .checkout-panel__header p:not(.eyebrow){
@@ -1082,7 +1088,7 @@ p{margin:0}
 }
 .checkout-form{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 .checkout-form label{
@@ -1097,7 +1103,7 @@ p{margin:0}
   text-transform: uppercase;
   letter-spacing: .08em;
 }
-.checkout-form__wide{ grid-column: 1 / -1; }
+.checkout-form__wide{ grid-column: auto; }
 .checkout-form input,
 .checkout-form textarea{
   width: 100%;
@@ -1167,19 +1173,40 @@ p{margin:0}
   .rate-card__layout{ grid-template-columns: 1fr; }
   .checkout-panel{ position: relative; top: auto; }
 }
-@media (max-width: 940px){
-  .rate-group{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px){
+  .rate-card{
+    grid-template-columns: minmax(0, 1fr) minmax(132px, 170px);
+    grid-template-areas:
+      "title price"
+      "desc price"
+      "bonus bonus"
+      "action action";
+  }
+  .rate-card__select{
+    justify-self: start;
+    width: auto;
+    min-width: 190px;
+  }
 }
 @media (max-width: 640px){
   .rate-card-section{ padding: 86px 0 96px; }
-  .rate-group{ grid-template-columns: 1fr; padding: 14px; }
+  .rate-card__catalog{ gap: 34px; }
   .rate-group__head{ align-items: flex-start; flex-direction: column; }
   .rate-group__head h3{ text-align: left; }
-  .rate-card{ padding: 20px; }
-  .rate-card__top{ flex-direction: column; align-items: flex-start; }
+  .rate-card{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "price"
+      "title"
+      "desc"
+      "bonus"
+      "action";
+    padding: 20px;
+  }
+  .rate-card__top{ align-items: flex-start; }
   .rate-card__price{ text-align: left; }
+  .rate-card__select{ width: 100%; }
   .checkout-panel{ padding: 22px; }
-  .checkout-form{ grid-template-columns: 1fr; }
   .checkout-summary__total{ align-items: flex-start; flex-direction: column; }
 }
 
