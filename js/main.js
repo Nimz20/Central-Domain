@@ -275,7 +275,7 @@
     if (!checkoutList || !checkoutAmount) return;
 
     const items = Array.from(selectedCheckoutItems.values());
-    checkoutList.innerHTML = '';
+    while (checkoutList.firstChild) checkoutList.removeChild(checkoutList.firstChild);
     if (checkoutEmpty) checkoutEmpty.hidden = items.length > 0;
 
     let total = 0;

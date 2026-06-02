@@ -392,6 +392,9 @@ h4{ font-size: 17px; font-weight: 760; }
   gap: 12px;
   margin-bottom: 36px;
 }
+.hero__cta--center{
+  justify-content: center;
+}
 .hero__proof{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1377,6 +1380,9 @@ main > section:not(.hero):not(.strip){
   place-items: center;
   text-align: center;
   padding-top: 150px !important;
+}
+.service-hero.not-found{
+  min-height: 100svh;
 }
 .service-hero > *{
   max-width: 880px;
