@@ -632,7 +632,6 @@ main > section:not(.hero):not(.strip) > *{
 .rate-card p,
 .feature p,
 .content-card p,
-.next-steps p,
 .pricing-list li,
 .faq__item p,
 .footer__brand p{
@@ -746,8 +745,7 @@ main > section:not(.hero):not(.strip) > *{
   border-radius: var(--radius);
   background: linear-gradient(180deg, rgba(241,246,239,.048), rgba(241,246,239,.018));
 }
-.content-card span,
-.next-steps span{
+.content-card span{
   color: var(--green);
   font-size: 12px;
   font-weight: 850;
@@ -861,29 +859,6 @@ main > section:not(.hero):not(.strip) > *{
   transform: translateX(2px);
 }
 
-.next-steps{
-  max-width: 1120px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin: -14px auto 32px;
-}
-.next-steps article{
-  display: grid;
-  gap: 10px;
-  padding: 18px;
-  border: 1px solid rgba(25,230,109,.2);
-  border-radius: var(--radius);
-  background: rgba(25,230,109,.045);
-}
-.next-steps h3{
-  font-size: 17px;
-}
-.next-steps p{
-  font-size: 13px;
-  line-height: 1.55;
-}
-
 .rate-card-section{
   background:
     linear-gradient(180deg, rgba(241,246,239,.025), rgba(25,230,109,.035));
@@ -967,10 +942,6 @@ main > section:not(.hero):not(.strip) > *{
   height: 6px;
   border-radius: 50%;
   background: var(--green);
-}
-.pricing-steps{
-  margin-top: 20px;
-  margin-bottom: 0;
 }
 .pricing-actions{
   display: flex;
@@ -1235,8 +1206,7 @@ main > section:not(.hero):not(.strip) > *{
 @media (max-width: 1180px){
   .service-matrix{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .outcome-grid,
-  .work-grid,
-  .next-steps{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero{
     grid-template-columns: 1fr;
     gap: 42px;
@@ -1326,7 +1296,6 @@ main > section:not(.hero):not(.strip) > *{
   .outcome-grid,
   .work-grid,
   .pricing-preview,
-  .next-steps,
   .service-features,
   .footer__cols{
     grid-template-columns: 1fr;
