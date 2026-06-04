@@ -124,19 +124,27 @@
   <section class="hero hero--premium" aria-labelledby="hero-title">
     <div class="hero__inner">
 
-      <p class="badge reveal" data-reveal>One stack. One team. Built to keep working.</p>
-
       <h1 class="hero__title" id="hero-title">
-        <span class="line reveal" data-reveal data-delay="60">Invisible online.</span>
-        <span class="line reveal" data-reveal data-delay="140">Invisible to clients.</span>
+        <span class="line line--nowrap reveal" data-reveal data-delay="60">Invisible online.</span>
+        <span class="line line--nowrap reveal" data-reveal data-delay="140">Invisible to clients.</span>
       </h1>
 
-      <p class="hero__lede reveal" data-reveal data-delay="320">
+      <div class="hero-search reveal" data-reveal data-delay="260" aria-label="Searching: your business on Google. Result state: Not found.">
+        <span class="hero-search__icon" aria-hidden="true"></span>
+        <span class="hero-search__viewport" aria-hidden="true">
+          <span class="hero-search__track">
+            <span class="hero-search__line">Searching: your business on Google</span>
+            <span class="hero-search__line hero-search__line--alert">Result state: Not found</span>
+          </span>
+        </span>
+      </div>
+
+      <p class="hero__lede reveal" data-reveal data-delay="340">
         Central Domain builds custom websites with managed hosting, local SEO and targeted content
         that help your business rank on Google, attract the right visitors and turn them into leads.
       </p>
 
-      <div class="hero__cta reveal" data-reveal data-delay="420">
+      <div class="hero__cta reveal" data-reveal data-delay="460">
         <a class="btn btn--primary" href="#rate-card">
           <span>Start estimate</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
@@ -146,12 +154,6 @@
         </a>
       </div>
 
-      <dl class="hero__proof reveal" data-reveal data-delay="500">
-        <div><dt>Build</dt><dd>Custom website and owned assets</dd></div>
-        <div><dt>Run</dt><dd>Hosting, email and support managed together</dd></div>
-        <div><dt>Grow</dt><dd>SEO, content and automation after launch</dd></div>
-      </dl>
-
     </div>
 
     <div class="hero__showcase reveal" data-reveal data-delay="520" aria-label="Central Domain brand mark">
@@ -160,14 +162,6 @@
           <div class="hero-mark__glow" aria-hidden="true"></div>
           <div class="hero-mark__ring" aria-hidden="true"></div>
           <img class="hero-mark__logo" src="assets/Logo - White.png" alt="Central Domain" />
-        </div>
-        <div class="hero-mark__body">
-          <p class="hero-mark__caption">Custom websites with the hosting, email and support layer handled properly.</p>
-          <div class="hero-mark__labels" aria-label="Service focus">
-            <span>Build</span>
-            <span>Run</span>
-            <span>Grow</span>
-          </div>
         </div>
       </div>
     </div>
