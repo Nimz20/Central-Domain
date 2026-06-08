@@ -414,6 +414,7 @@ h4{ font-size: 17px; font-weight: 760; }
     repeating-conic-gradient(from 0deg, rgba(25,230,109,.44) 0deg 2deg, transparent 2deg 15deg);
   mask-image: radial-gradient(circle, transparent 0 45%, #000 46% 50%, transparent 51%);
   opacity: .82;
+  animation: heroRingRotate 28s linear infinite;
 }
 .hero-mark__logo{
   position: relative;
