@@ -591,10 +591,11 @@ main > section:not(.hero):not(.strip):not(.service-hero) > *{
   gap: 14px;
 }
 .service-matrix--core{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, .925fr));
+  align-items: stretch;
 }
 .service-cluster{
-  min-height: 390px;
+  min-height: 370px;
   display: flex;
   flex-direction: column;
   padding: 22px;
@@ -613,9 +614,11 @@ main > section:not(.hero):not(.strip):not(.service-hero) > *{
     rgba(18,41,72,.4);
 }
 .service-cluster--feature{
+  border-color: rgba(25,230,109,.34);
   background:
     linear-gradient(180deg, rgba(25,230,109,.13), rgba(25,230,109,.035)),
     var(--panel);
+  box-shadow: 0 26px 90px rgba(25,230,109,.08);
 }
 .service-cluster--compact{
   min-height: 310px;
@@ -635,7 +638,14 @@ main > section:not(.hero):not(.strip):not(.service-hero) > *{
   font-weight: 850;
   text-transform: uppercase;
 }
-.service-cluster__head h3{ margin-bottom: 14px; }
+.service-cluster__head h3{
+  margin-bottom: 14px;
+  font-size: 25px;
+  line-height: 1.12;
+}
+.service-cluster--feature .service-cluster__head h3{
+  font-size: 31px;
+}
 .service-cluster__head p,
 .support-links small,
 .rate-card p,
@@ -1135,6 +1145,21 @@ main > section:not(.hero):not(.strip):not(.service-hero) > *{
   font-weight: 850;
   text-transform: uppercase;
 }
+.rate-card__flag{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border: 1px solid rgba(183,243,74,.28);
+  border-radius: 999px;
+  color: var(--lime);
+  background: rgba(183,243,74,.08);
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 .rate-card__price{
   color: var(--text);
   font-family: var(--font-display);
@@ -1154,6 +1179,12 @@ main > section:not(.hero):not(.strip):not(.service-hero) > *{
   line-height: 1.18;
 }
 .rate-card p{ font-size: 14px; line-height: 1.58; }
+.rate-card__fit{
+  padding: 12px;
+  border: 1px solid rgba(218,236,255,.13);
+  border-radius: var(--radius-sm);
+  background: rgba(218,236,255,.04);
+}
 .pricing-list{
   display: grid;
   gap: 8px;
@@ -1232,6 +1263,46 @@ main > section:not(.hero):not(.strip):not(.service-hero) > *{
   max-width: 560px;
   margin-top: 20px;
   font-size: 17px;
+}
+.contact__prompt{
+  max-width: 560px;
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid rgba(25,230,109,.22);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(25,230,109,.085), rgba(218,236,255,.03)),
+    var(--surface);
+}
+.contact__prompt > span{
+  display: block;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.contact__prompt ul{
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+.contact__prompt li{
+  position: relative;
+  padding-left: 17px;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.contact__prompt li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
 }
 .contact__response{
   display: inline-flex;
