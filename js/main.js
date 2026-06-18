@@ -12,20 +12,35 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Smooth anchor scrolling with fixed-nav offset ---------- */
+  const scrollToAnchor = (id, behavior = 'smooth') => {
+    if (!id || id === '#' || id.length < 2) return false;
+    const el = document.querySelector(id);
+    if (!el) return false;
+    const navEl = document.getElementById('nav');
+    const navOffset = navEl
+      ? Math.ceil(navEl.getBoundingClientRect().bottom + 18)
+      : 96;
+    const targetEl = el.querySelector(
+      '.section__head, .outcomes__head, .contact__left, .footer__inner'
+    ) || el;
+    const top = Math.max(0, window.scrollY + targetEl.getBoundingClientRect().top - navOffset);
+    window.scrollTo({ top, behavior });
+    return true;
+  };
+
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (!id || id === '#' || id.length < 2) return;
-      const el = document.querySelector(id);
-      if (!el) return;
       e.preventDefault();
-      const navEl = document.getElementById('nav');
-      const navOffset = navEl
-        ? Math.ceil(navEl.getBoundingClientRect().bottom + 18)
-        : 96;
-      const top = Math.max(0, window.scrollY + el.getBoundingClientRect().top - navOffset);
-      window.scrollTo({ top, behavior: 'smooth' });
+      scrollToAnchor(id);
     });
+  });
+
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      requestAnimationFrame(() => scrollToAnchor(window.location.hash, 'auto'));
+    }
   });
 
   /* ---------- Reveal on scroll ---------- */
