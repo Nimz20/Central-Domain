@@ -446,12 +446,36 @@ h4{ font-size: 17px; font-weight: 760; }
   gap: 9px 14px;
   align-items: center;
   justify-content: center;
-  color: var(--text-soft);
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
 }
-.hero__ticker-dot{ color: var(--green); }
+.hero__ticker-group span{
+  color: transparent;
+  background:
+    linear-gradient(0deg, var(--green) 0 50%, var(--text-soft) 50% 100%);
+  background-size: 100% 220%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: tickerTextFill 6s var(--ease) infinite;
+  animation-delay: var(--ticker-delay, 0s);
+}
+.hero__ticker-dot{ --ticker-delay: 3s; }
+
+@keyframes tickerTextFill{
+  0%, 45%, 100%{ background-position: 0 0; }
+  12%, 30%{ background-position: 0 100%; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero__ticker-group span{
+    animation: none;
+    color: var(--text-soft);
+    background: none;
+  }
+  .hero__ticker-dot{ color: var(--green); }
+}
 
 main > section:not(.hero):not(.service-hero){
   position: relative;
