@@ -3,8 +3,8 @@
    ===================================================== */
 
 :root{
-  --bg: #060806;
-  --bg-deep: #030403;
+  --bg: #1c183d;
+  --bg-deep: #120f2d;
   --panel: #0d130e;
   --panel-2: #111811;
   --panel-3: #162017;
@@ -61,7 +61,7 @@ body{
   line-height: 1.6;
   color: var(--text);
   background:
-    linear-gradient(180deg, var(--bg) 0%, #070b07 42%, var(--bg-deep) 100%);
+    linear-gradient(180deg, var(--bg) 0%, #181434 42%, var(--bg-deep) 100%);
   font-weight: 500;
   letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
@@ -92,7 +92,7 @@ strong{ font-weight: 800; }
   background:
     linear-gradient(115deg, rgba(25,230,109,.12), transparent 28%),
     linear-gradient(245deg, rgba(183,243,74,.08), transparent 34%),
-    linear-gradient(180deg, #080b08 0%, #050705 55%, #030403 100%);
+    linear-gradient(180deg, var(--bg) 0%, #181434 55%, var(--bg-deep) 100%);
 }
 .bg-grid{
   position: absolute;
@@ -1090,7 +1090,7 @@ main > section:not(.hero):not(.strip):not(.service-hero) > *{
 .footer{
   padding: 64px var(--page-x) 24px;
   border-top: 1px solid var(--line);
-  background: #040504;
+  background: var(--bg-deep);
 }
 .footer__inner{
   display: grid;
