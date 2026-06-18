@@ -50,11 +50,8 @@ html{
   background: var(--bg);
   color-scheme: dark;
   scroll-behavior: smooth;
-  scroll-padding-top: 104px;
+  scroll-padding-top: 96px;
   -webkit-text-size-adjust: 100%;
-}
-[id]{
-  scroll-margin-top: 104px;
 }
 body{
   min-width: 320px;
@@ -133,8 +130,7 @@ h4{ font-size: 17px; font-weight: 760; }
 }
 
 @media (max-width: 680px){
-  html{ scroll-padding-top: 88px; }
-  [id]{ scroll-margin-top: 88px; }
+  html{ scroll-padding-top: 82px; }
   body{ font-size: 15.5px; }
   h1{ font-size: 42px; }
   h2{ font-size: 34px; }
@@ -1629,6 +1625,15 @@ main > section:not(.hero):not(.service-hero) > *{
     padding-left: 20px;
     padding-right: 20px;
   }
+  .hero::before{
+    background-position: 24% center;
+    transform: scale(1.01);
+  }
+  .hero::after{
+    background:
+      linear-gradient(180deg, rgba(3,9,20,.26) 0%, rgba(3,9,20,.38) 46%, rgba(8,24,45,.82) 100%),
+      radial-gradient(ellipse at center, rgba(3,9,20,.06) 0%, rgba(3,9,20,.2) 54%, rgba(0,0,0,.42) 100%);
+  }
   .hero__inner{
     width: 100%;
     max-width: 100%;
@@ -1652,6 +1657,30 @@ main > section:not(.hero):not(.service-hero) > *{
   .service-features,
   .footer__cols{
     grid-template-columns: 1fr;
+  }
+  .footer{
+    text-align: center;
+  }
+  .footer__inner,
+  .footer__brand,
+  .footer__cols{
+    justify-items: center;
+  }
+  .footer__brand{
+    display: grid;
+  }
+  .footer__brand p{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer__cols{
+    text-align: center;
+  }
+  .footer__cols ul{
+    justify-items: center;
+  }
+  .footer__base{
+    text-align: center;
   }
   .hero__cta{
     display: grid;

@@ -11,7 +11,7 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Smooth anchor scrolling (native, GPU-composited) ---------- */
+  /* ---------- Smooth anchor scrolling with fixed-nav offset ---------- */
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
@@ -19,7 +19,12 @@
       const el = document.querySelector(id);
       if (!el) return;
       e.preventDefault();
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navEl = document.getElementById('nav');
+      const navOffset = navEl
+        ? Math.ceil(navEl.getBoundingClientRect().bottom + 18)
+        : 96;
+      const top = Math.max(0, window.scrollY + el.getBoundingClientRect().top - navOffset);
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
