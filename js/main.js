@@ -74,4 +74,29 @@
       });
     });
   }
+
+  /* ---------- Contact form mailto handoff ---------- */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const value = (name) => String(formData.get(name) || '').trim();
+      const service = value('service');
+      const lines = [
+        ['Name', value('name')],
+        ['Email or phone', value('contact')],
+        ['Website', value('website')],
+        ['Need', service],
+        ['Message', value('message')]
+      ].filter(([, content]) => content);
+
+      const subject = service
+        ? `Project enquiry - ${service}`
+        : 'Project enquiry - Central Domain';
+      const body = lines.map(([label, content]) => `${label}: ${content}`).join('\n');
+      window.location.href = `mailto:info@centraldomain.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
 })();

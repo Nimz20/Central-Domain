@@ -32,7 +32,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png?v=20260608-restore1" />
 <link rel="apple-touch-icon" href="assets/favicon.png?v=20260608-restore1" />
 
-<link rel="stylesheet" href="css/main.css?v=20260618-servicepricing1" />
+<link rel="stylesheet" href="css/main.css?v=20260618-form1" />
 
 <!-- Google Analytics GA4 -->
 <script src="js/analytics.js?v=20260608-perf1" defer></script>
@@ -514,13 +514,12 @@
           Usually replies within one working day
         </div>
         <div class="contact__cta reveal" data-reveal data-delay="300">
-          <a class="btn btn--primary btn--lg" href="mailto:info@centraldomain.co.za?subject=Project%20enquiry%20-%20Central%20Domain">
-            <span>Email the details</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-          </a>
           <a class="btn btn--ghost" href="https://wa.me/27725533660" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12c0 1.887.52 3.652 1.426 5.16L2 22l4.946-1.409A9.959 9.959 0 0 0 12.004 22C17.53 22 22 17.523 22 12S17.53 2 12.004 2zm0 18.18a8.163 8.163 0 0 1-4.17-1.144l-.299-.178-3.092.882.847-3.07-.195-.315A8.186 8.186 0 0 1 3.82 12c0-4.511 3.673-8.18 8.184-8.18 4.51 0 8.18 3.669 8.18 8.18 0 4.51-3.67 8.18-8.18 8.18z"/></svg>
             <span>WhatsApp us</span>
+          </a>
+          <a class="btn btn--ghost" href="tel:+27725533660">
+            <span>Call us</span>
           </a>
         </div>
       </div>
@@ -528,19 +527,51 @@
       <!-- RIGHT -->
       <div class="contact__right">
 
-        <a class="contact__card reveal" data-reveal data-delay="100" href="mailto:info@centraldomain.co.za">
-          <div class="contact__card-glow contact__card-glow--green"></div>
-          <div class="contact__card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <form class="contact-form reveal" data-reveal data-delay="100" id="contactForm" action="mailto:info@centraldomain.co.za" method="post" enctype="text/plain">
+          <div class="contact-form__head">
+            <span>Quick enquiry</span>
+            <h3>Start with the basics.</h3>
+            <p>A few details are enough. We will ask for anything missing.</p>
           </div>
-          <div class="contact__card-body">
-            <span class="contact__card-label">Email the details</span>
-            <span class="contact__card-val">info@centraldomain.co.za</span>
+
+          <div class="contact-form__grid">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              <span>Email or phone</span>
+              <input type="text" name="contact" autocomplete="email" required />
+            </label>
+            <label>
+              <span>Website</span>
+              <input type="url" name="website" inputmode="url" placeholder="https://" />
+            </label>
+            <label>
+              <span>What do you need?</span>
+              <select name="service" required>
+                <option value="">Choose one</option>
+                <option>New website</option>
+                <option>Fix my current website</option>
+                <option>Email and hosting</option>
+                <option>Search visibility</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label class="contact-form__wide">
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
           </div>
-          <div class="contact__card-arrow">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+
+          <div class="contact-form__actions">
+            <button class="btn btn--primary btn--lg" type="submit">
+              <span>Email the enquiry</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </button>
+            <a href="mailto:info@centraldomain.co.za">info@centraldomain.co.za</a>
           </div>
-        </a>
+        </form>
 
         <a class="contact__card reveal" data-reveal data-delay="180" href="tel:+27725533660">
           <div class="contact__card-glow contact__card-glow--deep"></div>
@@ -626,6 +657,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260608-perf1" defer></script>
+<script src="js/main.js?v=20260618-form1" defer></script>
 </body>
 </html>
