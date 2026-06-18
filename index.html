@@ -32,7 +32,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png?v=20260608-restore1" />
 <link rel="apple-touch-icon" href="assets/favicon.png?v=20260608-restore1" />
 
-<link rel="stylesheet" href="css/main.css?v=20260608-restore1" />
+<link rel="stylesheet" href="css/main.css?v=20260618-story4" />
 
 <!-- Google Analytics GA4 -->
 <script src="js/analytics.js?v=20260608-perf1" defer></script>
@@ -264,27 +264,47 @@
         </a>
       </div>
 
-      <div class="outcome-grid">
-        <article class="content-card reveal" data-reveal>
-          <span>01</span>
-          <h3>Search structure that exists</h3>
-          <p>Service pages, metadata, schema, internal links and Google Business Profile basics are planned into the build.</p>
-        </article>
-        <article class="content-card reveal" data-reveal data-delay="70">
-          <span>02</span>
-          <h3>A contact path that works</h3>
-          <p>Forms, email delivery, WhatsApp routes and enquiry handoffs are connected and tested before launch.</p>
-        </article>
-        <article class="content-card reveal" data-reveal data-delay="140">
-          <span>03</span>
-          <h3>A stack someone owns</h3>
-          <p>Hosting, DNS, SSL, backups, email and support stay close to the people who understand the website.</p>
-        </article>
-        <article class="content-card reveal" data-reveal data-delay="210">
-          <span>04</span>
-          <h3>Less manual follow-up</h3>
-          <p>Lead routing, documents, reporting and repeat admin can be simplified once the core website is stable.</p>
-        </article>
+      <div class="diagnostic-board reveal" data-reveal data-delay="120" aria-label="Visibility diagnostic example">
+        <div class="diagnostic-board__top">
+          <span></span><span></span><span></span>
+          <p>Visibility check</p>
+        </div>
+
+        <div class="diagnostic-search">
+          <span class="diagnostic-search__icon" aria-hidden="true"></span>
+          <div>
+            <small>Search test</small>
+            <strong>your service near me</strong>
+          </div>
+          <span class="diagnostic-badge diagnostic-badge--alert">Not found</span>
+        </div>
+
+        <div class="diagnostic-map" aria-label="Typical issues and fixes">
+          <div class="diagnostic-node diagnostic-node--alert">
+            <span>01</span>
+            <strong>No clear service page</strong>
+            <small>Google cannot match the offer.</small>
+          </div>
+          <div class="diagnostic-node">
+            <span>02</span>
+            <strong>Thin trust signals</strong>
+            <small>Visitors cannot judge credibility fast.</small>
+          </div>
+          <div class="diagnostic-node">
+            <span>03</span>
+            <strong>Loose contact path</strong>
+            <small>Enquiries have too many places to drop.</small>
+          </div>
+        </div>
+
+        <div class="diagnostic-fix">
+          <p>Central Domain route</p>
+          <div class="diagnostic-route" aria-label="Central Domain fix path">
+            <span>Website structure</span>
+            <span>Managed stack</span>
+            <span>Lead handoff</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -303,7 +323,7 @@
     </div>
 
     <div class="work-grid" aria-label="Selected client websites">
-      <article class="work-card reveal" data-reveal>
+      <article class="work-card work-card--featured reveal" data-reveal>
         <div class="work-card__logo work-card__logo--westfield">
           <img src="assets/work/westfield-logo.png" alt="Westfield Contractors logo" width="1024" height="341" loading="lazy" decoding="async" />
         </div>
@@ -312,6 +332,11 @@
           <h3>Westfield Contractors</h3>
         </div>
         <p>Contractor website with service positioning, project credibility and quote paths for a KZN building business.</p>
+        <div class="work-card__proof" aria-label="Westfield Contractors project proof points">
+          <span><strong>Service routes</strong><small>Clear paths for construction work.</small></span>
+          <span><strong>Project proof</strong><small>Visual credibility before the quote request.</small></span>
+          <span><strong>Lead action</strong><small>Contact points shaped around enquiries.</small></span>
+        </div>
         <div class="work-card__tags" aria-label="Project focus">
           <span>Service pages</span>
           <span>Project showcase</span>
