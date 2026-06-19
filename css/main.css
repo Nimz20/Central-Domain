@@ -1005,7 +1005,7 @@ main > section:not(.hero):not(.service-hero) > *{
 .work-card__visual{
   position: relative;
   min-width: 0;
-  aspect-ratio: 640 / 415;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 1px solid rgba(218,236,255,.16);
   border-radius: var(--radius);
@@ -1025,7 +1025,6 @@ main > section:not(.hero):not(.service-hero) > *{
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transform: scale(1.01);
 }
 .work-card__meta{
   min-height: 52px;
