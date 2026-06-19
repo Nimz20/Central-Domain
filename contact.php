@@ -84,7 +84,13 @@ if (strlen($name) < 2 || strlen($contact) < 4 || strlen($message) < 12) {
 }
 
 if ($website !== '' && filter_var($website, FILTER_VALIDATE_URL) === false) {
-    respond(false, 'Please enter the website as a full URL, starting with https://', 422);
+    $websiteForValidation = preg_match('/^[a-z][a-z0-9+.-]*:\/\//i', $website)
+        ? $website
+        : 'https://' . $website;
+
+    if (filter_var($websiteForValidation, FILTER_VALIDATE_URL) === false) {
+        respond(false, 'Please enter a valid website address, like www.example.co.za.', 422);
+    }
 }
 
 $replyTo = MAIL_TO;

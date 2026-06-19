@@ -282,14 +282,6 @@ h4{ font-size: 17px; font-weight: 760; }
   height: 58px;
   transform: translateY(-2px);
 }
-.brand__icon--lg{
-  width: 148px;
-  height: 82px;
-}
-.brand__icon--lg img{
-  height: 130px;
-  transform: translateY(-6px);
-}
 .brand__name{
   color: var(--text);
   font-family: var(--font-display);
@@ -1589,15 +1581,28 @@ main > section:not(.hero):not(.service-hero) > *{
   gap: 48px;
   align-items: start;
 }
+.footer__brand{
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+.footer__brand .brand__icon{
+  margin-left: auto;
+  margin-right: auto;
+}
 .footer__brand p{
   max-width: 390px;
   margin-top: 6px;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.65;
+  text-align: center;
 }
-.footer__brand > img{
-  width: 180px;
-  height: auto;
-  margin-bottom: 14px;
+.footer__logo{
+  width: 92px;
+  height: 92px;
+  margin-bottom: 8px;
+  object-fit: contain;
 }
 .footer__cols{
   display: grid;
@@ -1890,13 +1895,6 @@ main > section:not(.hero):not(.service-hero) > *{
   .footer__brand,
   .footer__cols{
     justify-items: center;
-  }
-  .footer__brand{
-    display: grid;
-  }
-  .footer__brand p{
-    margin-left: auto;
-    margin-right: auto;
   }
   .footer__cols{
     text-align: center;
