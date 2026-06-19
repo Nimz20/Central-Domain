@@ -29,11 +29,11 @@
 <meta name="twitter:description" content="Business websites, email, hosting, search visibility, content and support for companies that need a clearer online presence." />
 <meta name="twitter:image" content="https://www.centraldomain.co.za/assets/Logo%20-%20White.png" />
 
-<link rel="icon" type="image/png" href="assets/favicon.png?v=20260608-restore1" />
-<link rel="apple-touch-icon" href="assets/favicon.png?v=20260608-restore1" />
+<link rel="icon" type="image/png" href="assets/favicon.png?v=20260619-form1" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20260619-form1" />
 <link rel="alternate" type="text/plain" href="https://www.centraldomain.co.za/llms.txt" title="Central Domain AI summary" />
 
-<link rel="stylesheet" href="css/main.css?v=20260618-uniform2" />
+<link rel="stylesheet" href="css/main.css?v=20260619-form1" />
 
 <!-- Google Analytics GA4 -->
 <script src="js/analytics.js?v=20260608-perf1" defer></script>
@@ -125,7 +125,7 @@
   "isPartOf": { "@id": "https://www.centraldomain.co.za/#website" },
   "about": { "@id": "https://www.centraldomain.co.za/#org" },
   "publisher": { "@id": "https://www.centraldomain.co.za/#org" },
-  "dateModified": "2026-06-18",
+  "dateModified": "2026-06-19",
   "inLanguage": "en-ZA",
   "speakable": {
     "@type": "SpeakableSpecification",
@@ -149,7 +149,7 @@
   },
   "publisher": { "@id": "https://www.centraldomain.co.za/#org" },
   "datePublished": "2026-06-18",
-  "dateModified": "2026-06-18",
+  "dateModified": "2026-06-19",
   "inLanguage": "en-ZA"
 }
 </script>
@@ -214,7 +214,7 @@
 <!-- Nav -->
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top" aria-label="Central Domain home">
-    <div class="brand__icon"><img src="assets/Logo - White.png" alt="Central Domain logo" width="1162" height="912" decoding="async" /></div>
+    <div class="brand__icon"><img src="assets/central-domain-logo-white-192.webp" alt="Central Domain logo" width="192" height="151" decoding="async" /></div>
     <span class="brand__name">Central Domain</span>
   </a>
   <nav class="nav__links" aria-label="Primary">
@@ -607,7 +607,7 @@
     </div>
 
     <div class="pricing-actions reveal" data-reveal data-delay="220">
-      <a class="btn btn--primary" href="mailto:info@centraldomain.co.za?subject=Project%20quote%20request%20-%20Central%20Domain">
+      <a class="btn btn--primary" href="#contact">
         <span>Request a quote</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
       </a>
@@ -701,7 +701,12 @@
       <!-- RIGHT -->
       <div class="contact__right">
 
-        <form class="contact-form reveal" data-reveal data-delay="100" id="contactForm" action="mailto:info@centraldomain.co.za" method="post" enctype="text/plain">
+        <form class="contact-form reveal" data-reveal data-delay="100" id="contactForm" action="/contact.php" method="post">
+          <input type="hidden" name="source" value="Homepage contact form" />
+          <label class="contact-form__trap" aria-hidden="true">
+            <span>Company</span>
+            <input type="text" name="company" tabindex="-1" autocomplete="off" />
+          </label>
           <div class="contact-form__head">
             <span>Quick enquiry</span>
             <h3>Start with the basics.</h3>
@@ -745,6 +750,7 @@
             </button>
             <a href="mailto:info@centraldomain.co.za">info@centraldomain.co.za</a>
           </div>
+          <p class="contact-form__status" id="contactFormStatus" role="status" aria-live="polite" hidden></p>
         </form>
 
         <a class="contact__card reveal" data-reveal data-delay="180" href="tel:+27725533660">
@@ -786,7 +792,7 @@
 <footer class="footer" id="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <div class="brand__icon brand__icon--lg"><img src="assets/Logo - White.png" alt="Central Domain logo" width="1162" height="912" loading="lazy" decoding="async" /></div>
+      <div class="brand__icon brand__icon--lg"><img src="assets/central-domain-logo-white-384.webp" alt="Central Domain logo" width="384" height="302" loading="lazy" decoding="async" /></div>
       <span class="brand__name brand__name--lg">Central Domain</span>
       <p>Websites, hosting, email, search visibility, content and support kept together so your online presence is easier to manage.</p>
     </div>
@@ -831,6 +837,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260618-uniform2" defer></script>
+<script src="js/main.js?v=20260619-form1" defer></script>
 </body>
 </html>

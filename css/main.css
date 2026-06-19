@@ -1419,6 +1419,13 @@ main > section:not(.hero):not(.service-hero) > *{
   display: grid;
   gap: 7px;
 }
+.contact-form__trap{
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 .contact-form label > span{
   color: var(--text-soft);
   font-size: 12px;
@@ -1474,11 +1481,38 @@ main > section:not(.hero):not(.service-hero) > *{
   border: 0;
   cursor: pointer;
 }
+.contact-form__actions .btn:disabled{
+  cursor: wait;
+  opacity: .72;
+}
 .contact-form__actions > a{
   color: var(--text-soft);
   font-size: 13px;
   font-weight: 800;
   overflow-wrap: anywhere;
+}
+.contact-form__status{
+  margin: -4px 0 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(218,236,255,.14);
+  border-radius: var(--radius-sm);
+  color: var(--text-soft);
+  background: rgba(5,15,29,.52);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.contact-form__status[hidden]{
+  display: none;
+}
+.contact-form__status.is-success{
+  border-color: rgba(25,230,109,.42);
+  color: var(--green);
+  background: rgba(25,230,109,.08);
+}
+.contact-form__status.is-error{
+  border-color: rgba(255,107,107,.45);
+  color: #ffb4b4;
+  background: rgba(255,107,107,.08);
 }
 .contact__card{
   position: relative;

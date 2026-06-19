@@ -3,7 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/westfie1/public_html/centraldomain.co.za/
     - /bin/mkdir -p "$DEPLOYPATH/assets" "$DEPLOYPATH/assets/work" "$DEPLOYPATH/css" "$DEPLOYPATH/js" "$DEPLOYPATH/services"
-    - /bin/cp -f index.html 404.html robots.txt sitemap.xml .htaccess bk.png "$DEPLOYPATH"
+    - /bin/cp -f index.html 404.html contact.php robots.txt sitemap.xml llms.txt .htaccess bk.png "$DEPLOYPATH"
     - /bin/cp -f "assets/Logo - White.png" "assets/Logo 2 - Black.png" assets/favicon.png "$DEPLOYPATH/assets/"
     - /bin/cp -f assets/favicon-32.png assets/apple-touch-icon.png assets/central-domain-logo-white-192.webp assets/central-domain-logo-white-384.webp assets/central-domain-logo-white-640.webp "$DEPLOYPATH/assets/"
     - /bin/rm -f "$DEPLOYPATH/assets/work/westfield-logo.png" "$DEPLOYPATH/assets/work/shadrach-logo.png" "$DEPLOYPATH/assets/work/premiumtech-logo.png"
@@ -19,7 +19,7 @@ deployment:
     - /bin/cp -f services/seo-services.html "$DEPLOYPATH/services/seo-services.html"
     - /bin/cp -f services/social-media-management.html "$DEPLOYPATH/services/social-media-management.html"
     - /bin/chmod 755 "$DEPLOYPATH" "$DEPLOYPATH/assets" "$DEPLOYPATH/assets/work" "$DEPLOYPATH/css" "$DEPLOYPATH/js" "$DEPLOYPATH/services"
-    - /bin/chmod 644 "$DEPLOYPATH/index.html" "$DEPLOYPATH/404.html" "$DEPLOYPATH/robots.txt" "$DEPLOYPATH/sitemap.xml" "$DEPLOYPATH/.htaccess" "$DEPLOYPATH/bk.png"
+    - /bin/chmod 644 "$DEPLOYPATH/index.html" "$DEPLOYPATH/404.html" "$DEPLOYPATH/contact.php" "$DEPLOYPATH/robots.txt" "$DEPLOYPATH/sitemap.xml" "$DEPLOYPATH/llms.txt" "$DEPLOYPATH/.htaccess" "$DEPLOYPATH/bk.png"
     - /bin/chmod 644 "$DEPLOYPATH/assets/Logo - White.png" "$DEPLOYPATH/assets/Logo 2 - Black.png" "$DEPLOYPATH/assets/favicon.png"
     - /bin/chmod 644 "$DEPLOYPATH/assets/favicon-32.png" "$DEPLOYPATH/assets/apple-touch-icon.png" "$DEPLOYPATH/assets/central-domain-logo-white-192.webp" "$DEPLOYPATH/assets/central-domain-logo-white-384.webp" "$DEPLOYPATH/assets/central-domain-logo-white-640.webp"
     - /bin/chmod 644 "$DEPLOYPATH/assets/work/westfield-logo.webp" "$DEPLOYPATH/assets/work/shadrach-logo.webp" "$DEPLOYPATH/assets/work/premiumtech-logo.webp" "$DEPLOYPATH/assets/work/westfield-site.png" "$DEPLOYPATH/assets/work/shadrach-site.png" "$DEPLOYPATH/assets/work/premiumtech-site.png"

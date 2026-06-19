@@ -95,28 +95,60 @@
     });
   }
 
-  /* ---------- Contact form mailto handoff ---------- */
+  /* ---------- Contact form handoff ---------- */
   const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+  if (contactForm && window.fetch) {
+    const statusEl = document.getElementById('contactFormStatus');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const submitLabel = submitButton ? submitButton.querySelector('span') : null;
+    const defaultSubmitText = submitLabel ? submitLabel.textContent : '';
+
+    const setStatus = (message, state = '') => {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.hidden = !message;
+      statusEl.classList.toggle('is-success', state === 'success');
+      statusEl.classList.toggle('is-error', state === 'error');
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      setStatus('Sending enquiry...');
+
+      if (submitButton) submitButton.disabled = true;
+      if (submitLabel) submitLabel.textContent = 'Sending...';
 
       const formData = new FormData(contactForm);
-      const value = (name) => String(formData.get(name) || '').trim();
-      const service = value('service');
-      const lines = [
-        ['Name', value('name')],
-        ['Email or phone', value('contact')],
-        ['Website', value('website')],
-        ['Need', service],
-        ['Message', value('message')]
-      ].filter(([, content]) => content);
+      formData.set('page', window.location.href);
 
-      const subject = service
-        ? `Project enquiry - ${service}`
-        : 'Project enquiry - Central Domain';
-      const body = lines.map(([label, content]) => `${label}: ${content}`).join('\n');
-      window.location.href = `mailto:info@centraldomain.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json',
+            'X-Requested-With': 'fetch'
+          }
+        });
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (_error) {
+          data = { message: 'The enquiry could not be sent right now.' };
+        }
+
+        if (!response.ok || !data.ok) {
+          throw new Error(data.message || 'The enquiry could not be sent.');
+        }
+
+        contactForm.reset();
+        setStatus(data.message || 'Thanks, your enquiry has been sent.', 'success');
+      } catch (error) {
+        setStatus(error.message || 'The form could not send right now. Please WhatsApp or call us.', 'error');
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+        if (submitLabel) submitLabel.textContent = defaultSubmitText;
+      }
     });
   }
 })();
