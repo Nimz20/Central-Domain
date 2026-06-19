@@ -1611,6 +1611,33 @@ main > section:not(.hero):not(.service-hero) > *{
   margin-bottom: 8px;
   object-fit: contain;
 }
+.footer__social{
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+}
+.footer__social-link{
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(32,238,119,.28);
+  border-radius: 50%;
+  color: var(--green);
+  background: rgba(32,238,119,.06);
+  transition:
+    color .22s var(--ease),
+    border-color .22s var(--ease),
+    background .22s var(--ease),
+    transform .22s var(--ease);
+}
+.footer__social-link:hover{
+  color: var(--text);
+  border-color: rgba(32,238,119,.58);
+  background: rgba(32,238,119,.14);
+  transform: translateY(-2px);
+}
 .footer__cols{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1907,6 +1934,9 @@ main > section:not(.hero):not(.service-hero) > *{
   }
   .footer__cols ul{
     justify-items: center;
+  }
+  .footer__social{
+    justify-content: center;
   }
   .footer__base{
     text-align: center;
