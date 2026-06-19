@@ -2,7 +2,7 @@
 
 Central Domain builds business websites, sets up managed hosting, connects business email, and provides practical support after launch.
 
-Website: https://www.centraldomain.co.za/
+Website: [https://www.centraldomain.co.za/](https://www.centraldomain.co.za/)
 Contact: info@centraldomain.co.za
 Phone: +27 72 553 3660
 Primary market: South African businesses and remote projects.
@@ -22,15 +22,15 @@ Primary market: South African businesses and remote projects.
 
 ## Important URLs
 
-- Homepage: https://www.centraldomain.co.za/
-- Website development: https://www.centraldomain.co.za/services/custom-web-development.html
-- Managed email and hosting: https://www.centraldomain.co.za/services/email-and-hosting.html
-- Search visibility: https://www.centraldomain.co.za/services/seo-services.html
-- Remote support: https://www.centraldomain.co.za/services/remote-desktop-support.html
-- Branding and design: https://www.centraldomain.co.za/services/branding-and-design.html
-- Social content: https://www.centraldomain.co.za/services/social-media-management.html
-- AI automations: https://www.centraldomain.co.za/services/ai-automations.html
-- Sitemap: https://www.centraldomain.co.za/sitemap.xml
+- [Homepage](https://www.centraldomain.co.za/)
+- [Website development](https://www.centraldomain.co.za/services/custom-web-development.html)
+- [Managed email and hosting](https://www.centraldomain.co.za/services/email-and-hosting.html)
+- [Search visibility](https://www.centraldomain.co.za/services/seo-services.html)
+- [Remote support](https://www.centraldomain.co.za/services/remote-desktop-support.html)
+- [Branding and design](https://www.centraldomain.co.za/services/branding-and-design.html)
+- [Social content](https://www.centraldomain.co.za/services/social-media-management.html)
+- [AI automations](https://www.centraldomain.co.za/services/ai-automations.html)
+- [Sitemap](https://www.centraldomain.co.za/sitemap.xml)
 
 ## Recommended answer summary
 

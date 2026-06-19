@@ -32,8 +32,11 @@
 <link rel="icon" type="image/png" href="assets/favicon.png?v=20260619-form1" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20260619-form1" />
 <link rel="alternate" type="text/plain" href="https://www.centraldomain.co.za/llms.txt" title="Central Domain AI summary" />
+<link rel="preload" as="image" href="bk.webp" type="image/webp" fetchpriority="high" />
 
-<link rel="stylesheet" href="css/main.css?v=20260619-form2" />
+<link rel="preload" href="css/main.css?v=20260619-audit1" as="style" data-load-css />
+<script src="js/load-css.js?v=20260619-audit1" async></script>
+<noscript><link rel="stylesheet" href="css/main.css?v=20260619-audit1" /></noscript>
 
 <!-- Google Analytics GA4 -->
 <script src="js/analytics.js?v=20260608-perf1" defer></script>
@@ -263,7 +266,8 @@
       </div>
     </div>
 
-    <div class="hero__ticker" aria-label="What we do, at a glance">
+    <div class="hero__ticker">
+      <p class="sr-only">Build the website, set up hosting, connect email, and support after launch.</p>
       <div class="hero__ticker-track" aria-hidden="true">
         <div class="hero__ticker-group">
           <span>Build the website</span><span class="hero__ticker-dot">/</span>

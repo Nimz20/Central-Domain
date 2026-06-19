@@ -61,6 +61,15 @@
 
 *,*::before,*::after{ box-sizing: border-box; }
 html,body{ margin: 0; padding: 0; }
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
 html{
   background: var(--bg);
   color-scheme: dark;
@@ -368,7 +377,7 @@ h4{ font-size: 17px; font-weight: 760; }
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("../bk.png") center center / cover no-repeat;
+  background: url("../bk.webp") center center / cover no-repeat;
   transform: scale(1.015);
 }
 .hero::after{
